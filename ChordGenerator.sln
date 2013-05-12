@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ChordGenerator", "ChordGenerator\ChordGenerator.fsproj", "{7C6E3DE9-6E7B-464E-A2D1-6DAF4D1565ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChordGenerator.Web", "ChordGenerator.Web\ChordGenerator.Web.csproj", "{D497C7A9-DC0A-413A-A035-F3231982CE70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{7C6E3DE9-6E7B-464E-A2D1-6DAF4D1565ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6E3DE9-6E7B-464E-A2D1-6DAF4D1565ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6E3DE9-6E7B-464E-A2D1-6DAF4D1565ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D497C7A9-DC0A-413A-A035-F3231982CE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D497C7A9-DC0A-413A-A035-F3231982CE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D497C7A9-DC0A-413A-A035-F3231982CE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D497C7A9-DC0A-413A-A035-F3231982CE70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
