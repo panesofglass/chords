@@ -8,8 +8,8 @@ namespace ChordGenerator.Web.Models
 {
     public interface IChordRepository
     {
-        IEnumerable<string> GetKeys();
-        IEnumerable<TFrettedNote> Get(string chordName);
+        IEnumerable<Chord> GetAll();
+        Chord Get(string chordName);
         void Add(string chordName, TNote[] chord);
         void Remove(string chordName);
     }

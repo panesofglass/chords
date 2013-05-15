@@ -20,11 +20,13 @@ namespace ChordGenerator.Web.Models
                // Bass side
             });
 
-        private readonly Dictionary<string, TNote[]> _chords;
+        private readonly List<Chord> _chords;
 
         public SixStringGuitarChordRepository()
         {
-            _chords = new Dictionary<string, TNote[]>
+            _chords = new List<Chord>();
+
+            var data = new Dictionary<string, TNote[]>
             {
                 { "CMaj", Music.ChordGenerator.chordOf(new TNote(Music.ChordGenerator.CNat, 1), Music.ChordGenerator.major) },
                 { "DMaj", Music.ChordGenerator.chordOf(new TNote(Music.ChordGenerator.DNat, 1), Music.ChordGenerator.major) },
@@ -37,35 +39,40 @@ namespace ChordGenerator.Web.Models
                 { "AMin", Music.ChordGenerator.chordOf(new TNote(Music.ChordGenerator.ANat, 1), Music.ChordGenerator.minor) },
                 { "ADim", Music.ChordGenerator.chordOf(new TNote(Music.ChordGenerator.ANat, 1), Music.ChordGenerator.diminished) },
             };
+            
+            foreach (var entry in data)
+                Add(entry.Key, entry.Value);
         }
 
-        public IEnumerable<string> GetKeys()
+        public IEnumerable<Chord> GetAll()
         {
-            return _chords.Keys;
+            return _chords;
         }
 
-        public IEnumerable<TFrettedNote> Get(string chordName)
+        public Chord Get(string chordName)
         {
             if (chordName == null)
                 throw new ArgumentNullException(chordName);
-            if (_chords.ContainsKey(chordName))
-                return Music.ChordGenerator.findShape(standardGuitar, 0, 3, _chords[chordName]);
-            return null;
+
+            return _chords.SingleOrDefault(x => x.Name.Equals(chordName, StringComparison.OrdinalIgnoreCase));
         }
 
         public void Add(string chordName, TNote[] chord)
         {
             if (chordName == null)
                 throw new ArgumentNullException(chordName);
-            _chords[chordName] = chord;
+
+            _chords.Add(new Chord(chordName, Music.ChordGenerator.findShape(standardGuitar, 0, 3, chord)));
         }
 
         public void Remove(string chordName)
         {
             if (chordName == null)
                 throw new ArgumentNullException(chordName);
-            if (_chords.ContainsKey(chordName))
-                _chords.Remove(chordName);
+
+            var chord = _chords.SingleOrDefault(x => x.Name.Equals(chordName, StringComparison.OrdinalIgnoreCase));
+            if (chord != null)
+                _chords.Remove(chord);
         }
     }
 }

@@ -28,10 +28,10 @@ namespace ChordGenerator.Web.Controllers
 
         public IEnumerable<string> GetAll()
         {
-            return _repository.GetKeys();
+            return _repository.GetAll().Select(x => x.Name).ToList();
         }
 
-        public IEnumerable<TFrettedNote> Get(string id)
+        public Chord Get(string id)
         {
             return _repository.Get(id);
         }

@@ -30,6 +30,8 @@ type TFretting = {stringIndex : int; fretIndex : int}
 // A fretting plus the note that would result from that fretting:
 type TFrettedNote = {fretting : TFretting; note : TNote}
 
+type Chord = { Name : string; FrettedNote : seq<TFrettedNote> }
+
 /// Any fretted instrument:
 type TInstrument (fretCount : int, tuning : TTuning) = 
     member this.fretCount = fretCount // Includes nut at 0

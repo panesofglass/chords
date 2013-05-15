@@ -106,8 +106,19 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib.CollectionJson">
+      <HintPath>..\packages\WebApiContrib.CollectionJson.1.0.0.0\lib\net40\WebApiContrib.CollectionJson.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiContrib.Formatting.CollectionJson, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebApiContrib.Formatting.CollectionJson.0.0.2.0\lib\net40\WebApiContrib.Formatting.CollectionJson.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiContrib.Formatting.CollectionJson.Client">
+      <HintPath>..\packages\WebApiContrib.Formatting.CollectionJson.Client.1.0.0.0\lib\net40\WebApiContrib.Formatting.CollectionJson.Client.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ChordController.cs" />
     <Compile Include="Controllers\ChordsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
